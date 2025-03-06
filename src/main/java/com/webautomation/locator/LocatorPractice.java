@@ -145,7 +145,6 @@ public class LocatorPractice {
             }
         }
         Thread.sleep(3000);
-
         driver.quit();
 
     }
