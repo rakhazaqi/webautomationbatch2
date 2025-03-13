@@ -1,6 +1,7 @@
-package com.webautomation.scenario;
+package automation;
 
 import java.time.Duration;
+import java.util.HashMap;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -8,31 +9,40 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
-public class CheckoutTask {
-    public static void main(String[] args) throws InterruptedException {
+public class CheckoutTestNGImpl2Test {
+
+    public WebDriver driver;
+
+    @BeforeMethod
+    public void setUp(){
         System.setProperty("webdriver.chrome.driver", "C:/chromedriver/chromedriver.exe");
             
-        WebDriver driver = new ChromeDriver();    
+        driver = new ChromeDriver();    
         driver.get("https://www.saucedemo.com/");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
-        Actions action = new Actions(driver);
-        action.sendKeys(driver.findElement(By.id("user-name")),"standard_user").build().perform();
+    }
+    @Test(dataProvider = "dataTestMapping")
+    public void createOrder(HashMap<String, String>input) throws InterruptedException {
+        
 
-        action.sendKeys(driver.findElement(By.id("password")),"secret_sauce").build().perform();
+        Actions action = new Actions(driver);
+        action.sendKeys(driver.findElement(By.id("user-name")),input.get("username")).build().perform();
+
+        action.sendKeys(driver.findElement(By.id("password")),input.get("pw")).build().perform();
 
         action.click(driver.findElement(By.className("submit-button"))).build().perform();
-
-        
 
         List<WebElement> listProduct = driver.findElements(By.className("inventory_item"));
 
         System.out.println("Products" + listProduct);
 
-        String name = "Sauce Labs Bike Light";
-
-        WebElement product = listProduct.stream().filter(prod -> prod.findElement(By.cssSelector("div[class='inventory_item_name ']")).getText().equalsIgnoreCase(name)).findFirst().orElse(null);
+        WebElement product = listProduct.stream().filter(prod -> prod.findElement(By.cssSelector("div[class='inventory_item_name ']")).getText().equalsIgnoreCase(input.get("productName"))).findFirst().orElse(null);
         System.out.println("Hasil Stream: " + product.getText());
 
         product.findElement(By.className("btn_inventory")).click();
@@ -60,7 +70,28 @@ public class CheckoutTask {
 
         System.out.println("Order Status: " + confirmPage);
 
-        driver.quit();
     }
+    @AfterMethod
+    public void tearsDown(){
+        driver.close();
+    }
+    @DataProvider
+    public Object [][] dataTest(){
+        return new Object [][] {
+            {"standard_user", "secret_sauce", "Sauce Labs Bike Light" },
+        };
+    }
+    //Mapping
+    @DataProvider
+    public Object [][] dataTestMapping(){
+        HashMap <String, String> map = new HashMap<String, String>();
+        map.put("username", "standard_user");
+        map.put("pw", "secret_sauce");
+        map.put("productName", "Sauce Labs Bike Light");
+
+        return new Object[][] {{map}};
+
+    }
+
 
 }

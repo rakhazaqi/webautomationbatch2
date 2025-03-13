@@ -3,8 +3,6 @@ package com.webautomation.scenario;
 import java.time.Duration;
 import java.util.List;
 
-import javax.swing.Action;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
