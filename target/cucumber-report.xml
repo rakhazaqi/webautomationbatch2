@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="41.273" tests="13" skipped="0" failures="13" errors="0" timestamp="2025-03-21T16:57:32.985421600Z">
+<testcase classname="Purchase order from e-commerce" name="Create order positive case - #1.1" time="3.468">
+<failure/>
+<system-out><![CDATA[
+Given User was landing on the website.......................................passed
+Given Buyer logged on the website...........................................passed
+Given Buyer logged on the website username standard_user password secret_sauce.undefined
+When Buyer add product Sauce Labs Bike Light to cart........................skipped
+And Buyer checkout product Sauce Labs Bike Light............................skipped
+And Buyer place order firstname Lazar, lastname Samardzic, and postal 123456.skipped
+Then Buyer will see message is displayed on confirmation page Thank you for your order!.skipped
+]]></system-out>
+</testcase>
+<testcase classname="Form for Checkout Scenario" name="Positive Test Checkout Form - #1.1" time="2.956">
+<failure/>
+<system-out><![CDATA[
+Given Buyer logged on the website username standard_user password secret_sauce.undefined
+When Buyer add product Sauce Labs Bike Light to cart........................skipped
+And Buyer checkout product..................................................skipped
+And Buyer place order firstname Lazar, lastname Samardzic, and postal 123456.skipped
+Then Buyer will see message is displayed on confirmation page...............skipped
+]]></system-out>
+</testcase>
+<testcase classname="Form for Checkout Scenario" name="Negative Test Checkout Form - #1.1" time="2.932">
+<failure/>
+<system-out><![CDATA[
+Given Buyer logged on the website username standard_user password secret_sauce.undefined
+When Buyer add product Sauce Labs Bike Light to cart........................skipped
+And Buyer checkout product..................................................skipped
+And Buyer place order firstname Lazar, lastname Samardzic, and postal 123456.skipped
+Then Buyer will see error message is displayed <errormsg>...................skipped
+]]></system-out>
+</testcase>
+<testcase classname="Form for Checkout Scenario" name="Negative Test Checkout Form - #1.2" time="3.225">
+<failure/>
+<system-out><![CDATA[
+Given Buyer logged on the website username standard_user password secret_sauce.undefined
+When Buyer add product Sauce Labs Bike Light to cart........................skipped
+And Buyer checkout product..................................................skipped
+And Buyer place order firstname Lazar, lastname , and postal 123456.........skipped
+Then Buyer will see error message is displayed <errormsg>...................skipped
+]]></system-out>
+</testcase>
+<testcase classname="Form for Checkout Scenario" name="Negative Test Checkout Form - #1.3" time="2.933">
+<failure/>
+<system-out><![CDATA[
+Given Buyer logged on the website username standard_user password secret_sauce.undefined
+When Buyer add product Sauce Labs Bike Light to cart........................skipped
+And Buyer checkout product..................................................skipped
+And Buyer place order firstname , lastname Samardzic, and postal 123456.....skipped
+Then Buyer will see error message is displayed <errormsg>...................skipped
+]]></system-out>
+</testcase>
+<testcase classname="Form for Checkout Scenario" name="Negative Test Checkout Form - #1.4" time="2.956">
+<failure/>
+<system-out><![CDATA[
+Given Buyer logged on the website username standard_user password secret_sauce.undefined
+When Buyer add product Sauce Labs Bike Light to cart........................skipped
+And Buyer checkout product..................................................skipped
+And Buyer place order firstname Lazar, lastname Samardzic, and postal ......skipped
+Then Buyer will see error message is displayed <errormsg>...................skipped
+]]></system-out>
+</testcase>
+<testcase classname="Form for Checkout Scenario" name="Negative Test Checkout Form - #1.5" time="3.066">
+<failure/>
+<system-out><![CDATA[
+Given Buyer logged on the website username standard_user password secret_sauce.undefined
+When Buyer add product Sauce Labs Bike Light to cart........................skipped
+And Buyer checkout product..................................................skipped
+And Buyer place order firstname , lastname , and postal ....................skipped
+Then Buyer will see error message is displayed <errormsg>...................skipped
+]]></system-out>
+</testcase>
+<testcase classname="Login Scenario Ecommerce" name="Positive scenario to login ecommerce - #1.1" time="2.894">
+<failure/>
+<system-out><![CDATA[
+Given User was landing on the website.......................................passed
+When User fills in username standard_user and password secret_sauce on the login form.undefined
+Then User was landing on the product list page..............................skipped
+]]></system-out>
+</testcase>
+<testcase classname="Login Scenario Ecommerce" name="Negative scenario to login ecommerce - #1.1" time="2.948">
+<failure/>
+<system-out><![CDATA[
+Given User was landing on the website.......................................passed
+When User fills in username nice_user and password secret_sauce on the login form.undefined
+Then User will see error message is displayed Epic sadface: Username and password do not match any user in this service.skipped
+]]></system-out>
+</testcase>
+<testcase classname="Login Scenario Ecommerce" name="Negative scenario to login ecommerce - #1.2" time="2.961">
+<failure/>
+<system-out><![CDATA[
+Given User was landing on the website.......................................passed
+When User fills in username standard_user and password wrong_sauce on the login form.undefined
+Then User will see error message is displayed Epic sadface: Username and password do not match any user in this service.skipped
+]]></system-out>
+</testcase>
+<testcase classname="Login Scenario Ecommerce" name="Negative scenario to login ecommerce - #1.3" time="3.178">
+<failure/>
+<system-out><![CDATA[
+Given User was landing on the website.......................................passed
+When User fills in username standard_user and password " " on the login form.undefined
+Then User will see error message is displayed Epic sadface: Password is required.skipped
+]]></system-out>
+</testcase>
+<testcase classname="Login Scenario Ecommerce" name="Negative scenario to login ecommerce - #1.4" time="3.976">
+<failure/>
+<system-out><![CDATA[
+Given User was landing on the website.......................................passed
+When User fills in username " " and password secret_sauce on the login form.undefined
+Then User will see error message is displayed Epic sadface: Username is required.skipped
+]]></system-out>
+</testcase>
+<testcase classname="Login Scenario Ecommerce" name="Negative scenario to login ecommerce - #1.5" time="3.452">
+<failure type="java.lang.AssertionError" message="expected [Epic sadface: Username is required] but found [Epic sadface: Username and password do not match any user in this service]">
+<![CDATA[java.lang.AssertionError: expected [Epic sadface: Username is required] but found [Epic sadface: Username and password do not match any user in this service]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1590)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:656)
+	at org.testng.Assert.assertEquals(Assert.java:666)
+	at stepdefinitions.StepDefinitionImpl.errorMessage(StepDefinitionImpl.java:101)
+	at ✽.User will see error message is displayed Epic sadface: Username is required(file:///C:/Users/rakha/OneDrive/Desktop/QAautomation/webautomationbatch2/src/test/resources/features/Login.feature:17)
+]]>
+</failure>
+<system-out><![CDATA[
+Given User was landing on the website.......................................passed
+When User fills in username " " and password " " on the login form..........passed
+Then User will see error message is displayed Epic sadface: Username is required.failed
+]]></system-out>
+</testcase>
+</testsuite>

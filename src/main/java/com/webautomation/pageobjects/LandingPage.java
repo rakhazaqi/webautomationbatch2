@@ -26,7 +26,11 @@ public class LandingPage extends AbstractComponent{
     @FindBy(className = "submit-button")
     WebElement submitbtn;
 
+    @FindBy(css = "h3[data-test='error']")
+    WebElement errormsg;
+
     By submitBtn = By.id("user-name");
+    By confirmErrorMsg = By.cssSelector("h3[data-test='error']");
 
     
     public void loginApplication(String usrname, String password){
@@ -34,6 +38,12 @@ public class LandingPage extends AbstractComponent{
         username.sendKeys(usrname);
         pw.sendKeys(password);
         submitbtn.click();
+    }
+    public String getErrorMessage(){
+        visibilityOfElementLocated(confirmErrorMsg);
+        System.out.println("error" + errormsg.getText());
+        return errormsg.getText();
+
     }
 
 }

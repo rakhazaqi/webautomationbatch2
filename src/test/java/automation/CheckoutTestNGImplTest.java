@@ -22,7 +22,7 @@ public class CheckoutTestNGImplTest {
 
     @BeforeMethod
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver", "C:/chromedriver/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:/TestingDriver/chromedriver/chromedriver.exe");
             
         driver = new ChromeDriver();    
         driver.get("https://www.saucedemo.com/");
@@ -47,7 +47,6 @@ public class CheckoutTestNGImplTest {
         
         ProfileForm profileForm = new ProfileForm(driver);
         profileForm.profilePage(input.get("firstname"),input.get("lastname"), input.get("postal"));
-        // Thread.sleep(3000);
 
         ConfirmPage confirmPage = new ConfirmPage(driver);
         confirmPage.confPage();

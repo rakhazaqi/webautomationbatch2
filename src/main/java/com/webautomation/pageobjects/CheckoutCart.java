@@ -12,6 +12,7 @@ import com.webautomation.abstractcomponents.AbstractComponent;
 
 public class CheckoutCart extends AbstractComponent {
     WebDriver driver;
+    WebElement product;
 
     public CheckoutCart(WebDriver driver){
         super(driver);
@@ -25,15 +26,29 @@ public class CheckoutCart extends AbstractComponent {
     @FindBy(className = "checkout_button")
     WebElement cobtn;
 
-    @FindBy(className = "inventory_item_name")
+    @FindBy(className = "inventory_item_name") //BoxItem
     List<WebElement> listProducts;
 
+    @FindBy(className = "cart_item") //Text
+    List<WebElement> listCart;
+
+    public List<WebElement> getProductList(){
+        return listProducts;
+    }
+
     By cartList = By.className("shopping_cart_link");
+    By productCart = By.className("cart_item");
+    By brandCart = By.className("inventory_item_name");
+    By btnRemove = By.className("btn_small");
 
     public Boolean verifyCheckoutProduct(String productName){
         visibilityOfElementLocated(cartList);
         Boolean match = listProducts.stream().anyMatch(cartProduct -> cartProduct.getText().equalsIgnoreCase(productName));
         return match;
+    }
+    public WebElement getProductByName(String productName){
+        WebElement product = getProductList().stream().filter(prod -> prod.findElement(brandCart).getText().equalsIgnoreCase(productName)).findFirst().orElse(null);
+        return product;
     }
 
     public void checkoutPage(){
@@ -41,14 +56,12 @@ public class CheckoutCart extends AbstractComponent {
         shoppingcart.click();
         cobtn.click();
     }
-
-
-        //  action.click(driver.findElement(By.className("shopping_cart_link"))).build().perform();
-        // Thread.sleep(3000);
-
-        // action.click(driver.findElement(By.className("checkout_button"))).build().perform();
-        // Thread.sleep(3000);
-    
+    public void removeProduct(String productName){
+        visibilityOfElementLocated(cartList);
+        product = getProductByName(productName);
+        System.out.println("Hasil: " + product.getText());
+        product.findElement(btnRemove).click();
+    }
 
 }
 

@@ -20,7 +20,7 @@ public class CheckoutTestNGImpl2Test {
 
     @BeforeMethod
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver", "C:/chromedriver/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:/TestingDriver/chromedriver/chromedriver.exe");
             
         driver = new ChromeDriver();    
         driver.get("https://www.saucedemo.com/");

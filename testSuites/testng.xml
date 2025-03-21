@@ -5,8 +5,9 @@
         <test name="MyTestGroup">
         <parameter name="program"  value="Bootcamp WEB Automation"/>
             <classes>
-               <class name = "automation.CheckoutTestNGImplTest"/>
-               <class name = "automation.CheckoutTestNGImpl2Test"/>
+               <!-- <class name = "automation.CheckoutTestNGImplTest"/>
+               <class name = "automation.CheckoutTestNGImpl2Test"/> -->
+               <class name="runners.TestRunnerTestNg"/>
             </classes>
         </test>
     </suite>
