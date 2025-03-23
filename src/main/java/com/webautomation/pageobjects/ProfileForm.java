@@ -29,7 +29,11 @@ public class ProfileForm extends AbstractComponent {
     @FindBy(id = "continue")
     WebElement continuebtn;
 
+    @FindBy(css = "h3[data-test='error']")
+    WebElement errorMessage;
+
     By formElement = By.id("first-name");
+    By errorMsg = By.cssSelector("h3[data-test='error']");
 
     public void profilePage(String frstname, String lstname, String postal1){
         visibilityOfElementLocated(formElement);
@@ -38,6 +42,12 @@ public class ProfileForm extends AbstractComponent {
         postal.sendKeys(postal1);
         continuebtn.click();
     }
+    public String getErrorText(){
+        visibilityOfElementLocated(errorMsg);
+        System.out.println("error: " + errorMessage.getText());
+        return errorMessage.getText();
+    }
+    
     // action.sendKeys(driver.findElement(By.id("first-name")),"lazar").build().perform();
 
     //     action.sendKeys(driver.findElement(By.id("last-name")),"szamardzic").build().perform();

@@ -24,6 +24,11 @@ public class ProductListPage extends AbstractComponent {
     @FindBy(className = "inventory_item")
     List<WebElement> listProduct;
 
+    @FindBy(id = "react-burger-menu-btn")
+    WebElement menuBtn;
+
+    @FindBy(css = "nav[class='bm-item-list'] a[id='logout_sidebar_link']")
+    WebElement logoutBtn;
     
     public List<WebElement> getProductList(){
         return listProduct;
@@ -44,6 +49,12 @@ public class ProductListPage extends AbstractComponent {
         product = getProductByName(productName);
         System.out.println("Hasil: "+product.getText());
         product.findElement(btnCart).click();
+    }
+
+    public void logOut(){
+        menuBtn.click();
+        logoutBtn.click();
+
     }
     //  List<WebElement> listProduct = driver.findElements(By.className("inventory_item"));
 
