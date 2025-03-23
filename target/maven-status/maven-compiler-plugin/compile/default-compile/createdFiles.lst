@@ -1,0 +1,10 @@
+com\webautomation\locator\TaskLocator.class
+com\webautomation\exploration\JavaStream.class
+com\webautomation\scenario\CheckoutTask.class
+com\webautomation\locator\LocatorPractice.class
+com\webautomation\Main.class
+com\webautomation\locator\WebDriver.class
+com\webautomation\locator\HandleWindows.class
+com\webautomation\locator\SeleniumIntroduction.class
+com\webautomation\scenario\StandAloneTest.class
+com\webautomation\locator\Alert.class

@@ -3,8 +3,6 @@ package com.webautomation.scenario;
 import java.time.Duration;
 import java.util.List;
 
-import javax.swing.Action;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,7 +22,7 @@ public class StandAloneTest {
          * 2. Buyer checkout product
          * 3. Verifikasi thanks page
          */
-        System.setProperty("webdriver.chrome.driver", "C:/chromedriver/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:/TestingDriver/chromedriver/chromedriver.exe");
             
         WebDriver driver = new ChromeDriver();    
         driver.get("https://rahulshettyacademy.com/client");
@@ -53,7 +51,8 @@ public class StandAloneTest {
         Thread.sleep(3000);
 
         // product.findElement(By.xpath("//div[@class='card-body']//child::button//child::i[@class='fa fa-shopping-cart']")).click();
-        product.findElement(By.xpath("//div[@class='card-body']//child::button//child::i[@class='fa fa-shopping-cart']")).click();
+        product.findElement(By.cssSelector(".card-body button:last-of-type")).click();
+        // product.findElement(By.xpath("//div[@class='card-body']//child::button//child::i[@class='fa fa-shopping-cart']")).click();
         Thread.sleep(3000);
 
         driver.findElement(By.xpath("//button[@class='btn btn-custom']//child::i[@class='fa fa-shopping-cart']")).click();

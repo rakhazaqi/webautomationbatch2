@@ -1,0 +1,40 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 56.327 s <<< FAILURE! - in TestSuite
+runScenario(runners.TestRunnerTestng$TestRunnerTestNg)  Time elapsed: 2.972 s  <<< FAILURE!
+io.cucumber.testng.UndefinedStepException: 
+The step 'User fills in username standard_user and password  on the login form' is undefined.
+You can implement this step using the snippet(s) below:
+
+@When("User fills in username standard_user and password  on the login form")
+public void user_fills_in_username_standard_user_and_password_on_the_login_form() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+runScenario(runners.TestRunnerTestng$TestRunnerTestNg)  Time elapsed: 2.852 s  <<< FAILURE!
+io.cucumber.testng.UndefinedStepException: 
+The step 'User fills in username  and password secret_sauce on the login form' is undefined.
+You can implement this step using the snippet(s) below:
+
+@When("User fills in username  and password secret_sauce on the login form")
+public void user_fills_in_username_and_password_secret_sauce_on_the_login_form() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+runScenario(runners.TestRunnerTestng$TestRunnerTestNg)  Time elapsed: 2.924 s  <<< FAILURE!
+io.cucumber.testng.UndefinedStepException: 
+The step 'User fills in username  and password  on the login form' is undefined.
+You can implement this step using the snippet(s) below:
+
+@When("User fills in username  and password  on the login form")
+public void user_fills_in_username_and_password_on_the_login_form() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+

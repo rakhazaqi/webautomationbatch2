@@ -24,6 +24,8 @@ public class CheckoutTask {
 
         action.click(driver.findElement(By.className("submit-button"))).build().perform();
 
+        
+
         List<WebElement> listProduct = driver.findElements(By.className("inventory_item"));
 
         System.out.println("Products" + listProduct);

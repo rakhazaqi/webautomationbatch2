@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="59.283" tests="13" skipped="0" failures="0" errors="0" timestamp="2025-03-23T06:15:25.526385600Z">
+<testcase classname="Purchase order from e-commerce" name="Create order positive case - #1.1" time="4.932">
+<system-out><![CDATA[
+Given User was landing on the website.......................................passed
+Given Buyer logged on the website...........................................passed
+Given Buyer logged on the website username standard_user password secret_sauce.passed
+When Buyer add product Sauce Labs Bike Light to cart........................passed
+And Buyer checkout product Sauce Labs Bike Light............................passed
+And Buyer place order firstname Lazar, lastname Samardzic, and postal 123456.passed
+Then Buyer will see message is displayed on confirmation page Thank you for your order!.passed
+]]></system-out>
+</testcase>
+<testcase classname="Form for Checkout Scenario" name="Positive Test Checkout Form - #1.1" time="5.104">
+<system-out><![CDATA[
+Given User was landing on the website.......................................passed
+Given Buyer logged on the website username standard_user password secret_sauce.passed
+When Buyer add product Sauce Labs Bike Light to cart........................passed
+And Buyer checkout product Sauce Labs Bike Light............................passed
+And Buyer place order firstname Lazar, lastname Samardzic, and postal 123456.passed
+Then Buyer will see message is displayed on confirmation page Thank you for your order!.passed
+]]></system-out>
+</testcase>
+<testcase classname="Form for Checkout Scenario" name="Negative Test Checkout Form - #1.1" time="4.291">
+<system-out><![CDATA[
+Given User was landing on the website.......................................passed
+Given Buyer logged on the website username standard_user password secret_sauce.passed
+When Buyer add product Sauce Labs Bike Light to cart........................passed
+And Buyer checkout product Sauce Labs Bike Light............................passed
+And Buyer places order firstname "Lazar", lastname "", and postal code "123456".passed
+Then Buyer will see error message is displayed Error: Last Name is required.passed
+]]></system-out>
+</testcase>
+<testcase classname="Form for Checkout Scenario" name="Negative Test Checkout Form - #1.2" time="4.237">
+<system-out><![CDATA[
+Given User was landing on the website.......................................passed
+Given Buyer logged on the website username standard_user password secret_sauce.passed
+When Buyer add product Sauce Labs Bike Light to cart........................passed
+And Buyer checkout product Sauce Labs Bike Light............................passed
+And Buyer places order firstname "", lastname "Samardzic", and postal code "123456".passed
+Then Buyer will see error message is displayed Error: First Name is required.passed
+]]></system-out>
+</testcase>
+<testcase classname="Form for Checkout Scenario" name="Negative Test Checkout Form - #1.3" time="4.284">
+<system-out><![CDATA[
+Given User was landing on the website.......................................passed
+Given Buyer logged on the website username standard_user password secret_sauce.passed
+When Buyer add product Sauce Labs Bike Light to cart........................passed
+And Buyer checkout product Sauce Labs Bike Light............................passed
+And Buyer places order firstname "Lazar", lastname "Samardzic", and postal code "".passed
+Then Buyer will see error message is displayed Error: Postal Code is required.passed
+]]></system-out>
+</testcase>
+<testcase classname="Form for Checkout Scenario" name="Negative Test Checkout Form - #1.4" time="4.29">
+<system-out><![CDATA[
+Given User was landing on the website.......................................passed
+Given Buyer logged on the website username standard_user password secret_sauce.passed
+When Buyer add product Sauce Labs Bike Light to cart........................passed
+And Buyer checkout product Sauce Labs Bike Light............................passed
+And Buyer places order firstname "", lastname "", and postal code ""........passed
+Then Buyer will see error message is displayed Error: First Name is required.passed
+]]></system-out>
+</testcase>
+<testcase classname="Login Scenario Ecommerce" name="Positive scenario to login ecommerce - #1.1" time="3.447">
+<system-out><![CDATA[
+Given User was landing on the website.......................................passed
+When User fills in username "standard_user" and password "secret_sauce" on the login form.passed
+Then User was landing on the product list page..............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Login Scenario Ecommerce" name="Negative scenario to login ecommerce - #1.1" time="3.433">
+<system-out><![CDATA[
+Given User was landing on the website.......................................passed
+When User fills in username "nice_user" and password "secret_sauce" on the login form.passed
+Then User will see error message is displayed Epic sadface: Username and password do not match any user in this service.passed
+]]></system-out>
+</testcase>
+<testcase classname="Login Scenario Ecommerce" name="Negative scenario to login ecommerce - #1.2" time="3.711">
+<system-out><![CDATA[
+Given User was landing on the website.......................................passed
+When User fills in username "standard_user" and password "wrong_sauce" on the login form.passed
+Then User will see error message is displayed Epic sadface: Username and password do not match any user in this service.passed
+]]></system-out>
+</testcase>
+<testcase classname="Login Scenario Ecommerce" name="Negative scenario to login ecommerce - #1.3" time="9.964">
+<system-out><![CDATA[
+Given User was landing on the website.......................................passed
+When User fills in username "standard_user" and password "" on the login form.passed
+Then User will see error message is displayed Epic sadface: Password is required.passed
+]]></system-out>
+</testcase>
+<testcase classname="Login Scenario Ecommerce" name="Negative scenario to login ecommerce - #1.4" time="3.718">
+<system-out><![CDATA[
+Given User was landing on the website.......................................passed
+When User fills in username "" and password "secret_sauce" on the login form.passed
+Then User will see error message is displayed Epic sadface: Username is required.passed
+]]></system-out>
+</testcase>
+<testcase classname="Login Scenario Ecommerce" name="Negative scenario to login ecommerce - #1.5" time="3.478">
+<system-out><![CDATA[
+Given User was landing on the website.......................................passed
+When User fills in username "" and password "" on the login form............passed
+Then User will see error message is displayed Epic sadface: Username is required.passed
+]]></system-out>
+</testcase>
+<testcase classname="Logout Scenario Ecommerce" name="Logout scenario from ecommerce - #1.1" time="4.122">
+<system-out><![CDATA[
+Given User was landing on the website.......................................passed
+When User fills in username "standard_user" and password "secret_sauce" on the login form.passed
+And User was landing on the product list page...............................passed
+And User choice Logout on the menu button...................................passed
+Then User was landing on the login page.....................................passed
+]]></system-out>
+</testcase>
+</testsuite>
